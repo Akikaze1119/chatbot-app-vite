@@ -1,10 +1,10 @@
-import { UseFormReturn, FieldValues, useForm } from 'react-hook-form';
+import { UseFormReturn, useForm } from 'react-hook-form';
 import { Undo2, Send } from 'lucide-react';
 
 import RadioGroupRating from './ScoreRadioInput';
 import { cn } from '../utils/clsx-utils';
 
-const apiUrl = import.meta.env.VITE_REACT_APP_API_URL;
+const apiUrl = import.meta.env.VITE_API_URL;
 
 interface IRadioGroupRatingProps {
   formControls: UseFormReturn<{ userText: string }>;
