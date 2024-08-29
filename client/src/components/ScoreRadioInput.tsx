@@ -46,8 +46,6 @@ function IconContainer(props: IconContainerProps) {
   return <span {...other}>{customIcons[value].icon}</span>;
 }
 
-import { FieldValues } from 'react-hook-form';
-
 interface IRadioGroupRatingProps {
   formControls: UseFormReturn<{ score: number }>;
 }
