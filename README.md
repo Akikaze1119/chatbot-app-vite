@@ -13,25 +13,24 @@ Framer Motion: Library for animations in React.:
 ##　 Folder Structure
 
 ```
-├── dist
-├── public
-├── src
-│   ├── backend             # Backend-related files
-│   │   ├── controllers     # Request handlers for routes
-│   │   ├── errors          # Custom error classes and handling
-│   │   ├── models          # Database models or schemas
-│   │   ├── routers         # API route definitions
-│   │   ├── services        # Business logic and services
-│   │   └── server.ts       # Entry point for the backend server
-│   ├── components          # Reusable components like Button, ChatBox, etc.
-│   ├── utils               # Utility functions like clsx-utils
-│   ├── App.tsx             # Main app component
-│   ├── index.tsx           # Entry point of the app
-│   ├── styles              # Global styles
-│   └── ...
+├── server             # Backend-related files
+│   ├── dist
+│   ├── controllers     # Request handlers for routes
+│   ├── errors          # Custom error classes and handling
+│   ├── models          # Database models or schemas
+│   ├── routers         # API route definitions
+│   ├── services        # Business logic and services
+│   └── server.ts       # Entry point for the backend server
+├── client
+│   ├── src
+│   │   ├── components          # Reusable components like Button, ChatBox, etc.
+│   │   ├── utils               # Utility functions like clsx-utils
+│   │   ├── App.tsx             # Main app component
+│   │   ├── index.tsx           # Entry point of the app
+│   │   ├── styles              # Global styles
+│   │   └── ...
 ├── README.md
-├── package.json
-└── tailwind.config.js
+└── package.json
 ```
 
 ## Usage
