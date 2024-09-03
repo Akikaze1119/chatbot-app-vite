@@ -19,7 +19,6 @@ export const formatText = (text: string): ReactNode => {
     } else if (line.trim() === '') {
       return <br key={`br-${index}`} />;
     } else {
-      // 最後の選択肢として <p> タグを使用しますが、他のブロック要素は含めません。
       return (
         <div key={`div-${index}`}>
           <p>{line}</p>
