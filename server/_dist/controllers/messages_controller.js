@@ -10,4 +10,14 @@ async function sendMessage(req, res) {
     const aiMessage = await Message.save({ chatId, content: aiResponse, sender: 'model' });
     res.json({ message, aiMessage });
 }
-export { sendMessage };
+async function getChatHistory(req, res) {
+    const chatId = req.params.chatId;
+    const messages = await Message.getMessages(chatId);
+    console.log('messages:', messages);
+    const history = messages.map((message) => ({
+        role: message.sender,
+        parts: [{ text: message.content }],
+    }));
+    res.json(history);
+}
+export { sendMessage, getChatHistory };

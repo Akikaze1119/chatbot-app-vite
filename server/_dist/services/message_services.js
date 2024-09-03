@@ -1,5 +1,14 @@
 import { neon } from '@neondatabase/serverless';
 class MessageServices {
+    static async getMessages(chatId) {
+        const sql = neon(`${process.env.DATABASE_URL}`);
+        const response = await sql `
+    SELECT * FROM messages
+    WHERE chat_id = ${chatId}
+    ORDER BY time_stamp;
+    `;
+        return response;
+    }
     static async saveMessage({ chatId, content, sender, time_stamp }) {
         const sql = neon(`${process.env.DATABASE_URL}`);
         const response = await sql `

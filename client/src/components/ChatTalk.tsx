@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Send, RotateCcw } from 'lucide-react';
 
@@ -29,6 +29,7 @@ export default function ChatRoom() {
   const [error, setError] = useState('');
   const [chatHistory, setChatHistory] = useState<ChatItem[]>([]);
   const [showScoreForm, setShowScoreForm] = useState(false);
+  const [isFirstLoading, setFirstLoading] = useState(false);
 
   const formControls = useForm({
     defaultValues: {
@@ -43,6 +44,32 @@ export default function ChatRoom() {
     watch,
     reset,
   } = formControls;
+
+  /**
+   * Get chat history from the server, only when the component is mounted
+   */
+  useEffect(() => {
+    getChatHistory();
+  }, []);
+
+  const getChatHistory = async () => {
+    setFirstLoading(true);
+    const chatId = localStorage.getItem('chatId');
+
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    try {
+      const response = await fetch(`${apiUrl}/api/messages/${chatId}`);
+      const responseData: ChatItem[] = await response.json();
+      console.log('responseData', responseData);
+      setChatHistory(responseData);
+    } catch (error) {
+      console.error(error);
+      setError('Something went wrong! Please try again later');
+    } finally {
+      setFirstLoading(false);
+    }
+  };
 
   /**
    * send user input to the server and get the response
@@ -88,6 +115,7 @@ export default function ChatRoom() {
         {/* default chatbot message */}
         <AiMessage content={'Hello! How can i assist you today?'} />
         {error && <AiMessage content={error} />}
+        {isFirstLoading && <AiMessage content={'Please wait...'} />}
         {/* Chat history */}
         <div className='mt-4'>
           {chatHistory.map((chatItem, _index) => (
