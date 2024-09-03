@@ -17,26 +17,26 @@ class Ai {
       const model = getAI.getGenerativeModel({ model: 'gemini-pro' });
 
       // Add a default message for prompting the user to start the conversation
-      {
-        history.unshift(
-          {
-            role: 'user',
-            parts: [
-              {
-                text: 'Hello, your name is gemini. You have to help giving some information about summer night movies.',
-              },
-            ],
-          },
-          {
-            role: 'model',
-            parts: [
-              {
-                text: 'Okay, I can help with that. What would you like to know?',
-              },
-            ],
-          }
-        );
-      }
+      // {
+      //   history.unshift(
+      //     {
+      //       role: 'user',
+      //       parts: [
+      //         {
+      //           text: 'Hello, your name is gemini. You have to help giving some information about summer night movies.',
+      //         },
+      //       ],
+      //     },
+      //     {
+      //       role: 'model',
+      //       parts: [
+      //         {
+      //           text: 'Okay, I can help with that. What would you like to know?',
+      //         },
+      //       ],
+      //     }
+      //   );
+      // }
 
       const chat = model.startChat({
         history: history,
