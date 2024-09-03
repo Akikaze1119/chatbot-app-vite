@@ -15,8 +15,7 @@ function App() {
           <h1 className='text-white font-bold'>React Chat</h1>
         </header>
         <main className={'p-6'}>
-          <h2>Contents</h2>
-          <p>
+          <p className='bg-violet-100 p-4 rounded-lg mt-4'>
             This is a chat application that uses a chatbot to answer questions. Click on the chat
             button to open the chat window.
           </p>
