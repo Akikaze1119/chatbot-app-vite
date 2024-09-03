@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Send, RotateCcw } from 'lucide-react';
 
-import { formatText } from './formatText';
+import { formatText } from './FormatText';
 import { cn } from '../utils/clsx-utils';
 import AiMessage from './AiMessage';
 import UserMessage from './UserMessage';

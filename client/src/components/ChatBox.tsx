@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, BotMessageSquare } from 'lucide-react';
 import UserForm from './UserForm';
-import ChatRoom from './ChatRoom';
+import ChatRoom from './ChatTalk';
 
 interface IChatBoxProps {
   setOpen: (open: boolean) => void;
