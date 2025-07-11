@@ -1,4 +1,4 @@
-import { sendMessage } from '../controllers/messages_controller.js';
+import { sendMessage, getChatHistory } from '../controllers/messages_controller.js';
 import { startChat, restartChat } from '../controllers/chats_controller.js';
 import express from 'express';
 const router = express.Router();
@@ -6,6 +6,7 @@ const router = express.Router();
 router.post('/chats', startChat);
 router.post('/chats/restart', restartChat);
 // Messages
+router.get('/messages/:chatId', getChatHistory);
 router.post('/messages', sendMessage);
 // Test
 router.get('/', (req, res) => {

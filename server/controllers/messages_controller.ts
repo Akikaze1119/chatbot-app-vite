@@ -2,6 +2,7 @@ import Ai from '../models/ai.js';
 import Message from '../models/message.js';
 
 import { Request, Response } from 'express';
+import { IChatItem } from '../types/chat.js';
 
 async function sendMessage(req: Request, res: Response) {
   const { chatId, content, history } = req.body;
@@ -18,4 +19,17 @@ async function sendMessage(req: Request, res: Response) {
   res.json({ message, aiMessage });
 }
 
-export { sendMessage };
+async function getChatHistory(req: Request, res: Response) {
+  const chatId = req.params.chatId;
+
+  const messages = await Message.getMessages(chatId);
+  console.log('messages:', messages);
+  const history: IChatItem[] = messages.map((message) => ({
+    role: message.sender,
+    parts: [{ text: message.content }],
+  }));
+
+  res.json(history);
+}
+
+export { sendMessage, getChatHistory };

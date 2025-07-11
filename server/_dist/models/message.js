@@ -13,5 +13,9 @@ class Message {
         const message = new Message({ id, chatId, content, sender, time_stamp });
         return message;
     }
+    static async getMessages(chatId) {
+        const messages = await MessageServices.getMessages(chatId);
+        return messages.map((message) => new Message(message));
+    }
 }
 export default Message;

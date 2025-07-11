@@ -5,3 +5,8 @@ export interface IChat {
   location: string | null;
   time_stamp: Date;
 }
+
+export interface IChatItem {
+  role: string;
+  parts: { text: string }[];
+}
