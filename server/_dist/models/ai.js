@@ -8,7 +8,7 @@ class Ai {
         try {
             const googleGenAIKey = process.env.GOOGLE_GEN_AI_KEY || 'default-key';
             const getAI = new GoogleGenerativeAI(googleGenAIKey);
-            const model = getAI.getGenerativeModel({ model: 'gemini-pro' });
+            const model = getAI.getGenerativeModel({ model: 'gemini-2.5-pro' });
             // Add a default message for prompting the user to start the conversation
             // {
             //   history.unshift(
